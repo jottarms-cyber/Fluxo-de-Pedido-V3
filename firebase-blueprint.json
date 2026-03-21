@@ -1,0 +1,104 @@
+{
+  "entities": {
+    "Client": {
+      "title": "Client",
+      "description": "Customer information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "razaoSocial": { "type": "string" },
+        "nomeFantasia": { "type": "string" },
+        "cnpj": { "type": "string" },
+        "inscricaoEstadual": { "type": "string" },
+        "telefone": { "type": "string" },
+        "email": { "type": "string" },
+        "contato": { "type": "string" },
+        "cep": { "type": "string" },
+        "endereco": { "type": "string" },
+        "numero": { "type": "string" },
+        "bairro": { "type": "string" },
+        "cidade": { "type": "string" },
+        "estado": { "type": "string" },
+        "complemento": { "type": "string" },
+        "observacoes": { "type": "string" }
+      },
+      "required": ["id", "razaoSocial", "cnpj"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Product information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "codigo": { "type": "string" },
+        "descricao": { "type": "string" },
+        "barcode": { "type": "string" },
+        "internalCode": { "type": "string" },
+        "description": { "type": "string" },
+        "stock": { "type": "number" },
+        "dailySales": { "type": "number" }
+      },
+      "required": ["id", "codigo", "descricao"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Order information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "numero": { "type": "string" },
+        "data": { "type": "string" },
+        "clientCnpj": { "type": "string" },
+        "clientName": { "type": "string" },
+        "totalGeral": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "codigo": { "type": "string" },
+              "descricao": { "type": "string" },
+              "quantidade": { "type": "number" },
+              "valorUnitario": { "type": "number" },
+              "valorTotal": { "type": "number" }
+            }
+          }
+        }
+      },
+      "required": ["id", "numero", "clientCnpj", "status"]
+    },
+    "Operator": {
+      "title": "Operator",
+      "description": "Operator information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nome": { "type": "string" },
+        "matricula": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "nome", "matricula"]
+    }
+  },
+  "firestore": {
+    "clients": {
+      "schema": "Client",
+      "description": "Collection of clients"
+    },
+    "products": {
+      "schema": "Product",
+      "description": "Collection of products"
+    },
+    "orders": {
+      "schema": "Order",
+      "description": "Collection of orders"
+    },
+    "operators": {
+      "schema": "Operator",
+      "description": "Collection of operators"
+    }
+  }
+}

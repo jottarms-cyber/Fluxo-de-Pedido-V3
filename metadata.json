@@ -1,5 +1,0 @@
-{
-  "name": "Fluxo de Pedido",
-  "description": "Sistema completo para controle de pedidos com leitura de código de barras, fluxo Kanban e geração de nota.",
-  "requestFramePermissions": []
-}
